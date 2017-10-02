@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+  
+<hibernate-mapping><!-- 实体类与表的映射文件 -->
+	<class name="edson.web.domain.Customer" table="customer">
+		<!-- 主键定义 -->
+		<id name="id" column="id">
+			<generator class="native"/><!-- 主键生成策略 -->
+		</id>
+		<!-- 普通属性定义 -->
+		<property name="cname"/>
+		<property name="addr"/>
+		<property name="cellphone"></property>
+		
+		<set name="orders" cascade="all-delete-orphan">
+			<key column="customer_id"/>
+			<one-to-many class="edson.web.domain.Order"/>
+		
+		</set>
+	</class>
+
+</hibernate-mapping>

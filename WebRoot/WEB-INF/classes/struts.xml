@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+	
+<struts>
+	<package name="base" extends="struts-default">
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="edson.web.exceptions.DbException"/>
+		</global-exception-mappings>
+	</package>
+
+	<package name="Customer" namespace="/Customer" extends="base">
+		
+		<action name="/Customer_*" class="edson.web.action.CustomerAction" method="{1}">
+			<result name="success_list">/customer/list.jsp</result>
+			<result name="success_add">/customer/list.jsp</result>
+			<result name="input">/customer/addUI.jsp</result>
+			<result name="success_updateUI">/customer/addUI.jsp</result>
+			<result name="success_update">/customer/list.jsp</result>
+			<result name="success_delete">/customer/list.jsp</result>
+			<result name="exception">/exception/finalException.jsp</result>
+			<allowed-methods>list,add,delete,update,updateUI</allowed-methods>
+		
+		</action>
+	</package>
+	
+	<package name="Order" namespace="/Order" extends="base">
+		<action name="/Order_*" class="edson.web.action.OrderAction" method="{1}">
+			<result name="success_list">/order/list.jsp</result>
+			<result name="success_add">/order/list.jsp</result>
+			<result name="success_updateUI">/order/addUI.jsp</result>
+			<result name="success_update">/order/list.jsp</result>
+			<result name="exception">/exception/finalException.jsp</result>
+			<allowed-methods>list,add,delete,updateUI,update</allowed-methods>
+		
+		</action>
+	
+	
+	
+	</package>
+
+
+</struts>
+	
+	
+	
+	
+	

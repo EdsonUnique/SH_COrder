@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+  
+<hibernate-mapping><!-- 实体类与表的映射文件 -->
+	<class name="edson.web.domain.Order" table="orders">
+		<!-- 主键定义 -->
+		<id name="id" column="id">
+			<generator class="native"/><!-- 主键生成策略 -->
+		</id>
+		<!-- 普通属性定义 -->
+		<property name="odate" column="o_date"/>
+		<property name="items"/>
+		
+		<many-to-one name="customer" class="edson.web.domain.Customer" column="customer_id"></many-to-one>
+	</class>
+
+</hibernate-mapping>
